@@ -24,6 +24,7 @@ public class EmployeeWageBuilder {
                 default:
                     empHrs = 0;
             }
+
             totalEmpHrs += empHrs;
             int empWage = empHrs * EMP_RATE_PER_HOUR;
             totalEmpWage += empWage;
