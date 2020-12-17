@@ -27,6 +27,7 @@ public class EmployeeWageBuilder {
             }
             totalemphrs += emphrs;
             System.out.println("Day#: " + totalworkingdays + " Emp Hr: " +emphrs);
+
         }
         int totalEmpwage  =  totalemphrs * EMP_RATE_PER_HOUR;
         System.out.println("Total Emp Wage : " + totalEmpwage);
