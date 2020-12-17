@@ -7,29 +7,35 @@ public class EmployeeWageBuilder {
     public static final int NUM_OF_WORKING_DAYS = 20;
     public static final int MAX_HOURS_IN_MONTH = 100;
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation");
-        int totalEmpWage = 0, totalWorkingDays = 0,totalEmpHrs = 0;
-        while (totalEmpHrs <= MAX_HOURS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
-            int empHrs = 0;
-            totalWorkingDays++;
-            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-            switch (empCheck) {
-                case IS_FULL_TIME:
-                    empHrs = 8;
-                    break;
+    public static int empWageComputation()
+    {
+        int emphrs = 0, totalemphrs = 0, totalworkingdays = 0;
+        while (totalemphrs <= MAX_HOURS_IN_MONTH && totalworkingdays < NUM_OF_WORKING_DAYS)
+        {
+            totalworkingdays++;
+            int empcheck = (int) Math.floor(Math.random() * 10) % 3;
+            switch (empcheck)
+            {
                 case IS_PART_TIME:
-                    empHrs = 4;
+                    emphrs = 4;
+                    break;
+                case IS_FULL_TIME:
+                    emphrs = 8;
                     break;
                 default:
-                    empHrs = 0;
+                    emphrs = 0;
             }
+            totalemphrs += emphrs;
+            System.out.println("Day#: " + totalworkingdays + " Emp Hr: " +emphrs);
 
-            totalEmpHrs += empHrs;
-            int empWage = empHrs * EMP_RATE_PER_HOUR;
-            totalEmpWage += empWage;
-            System.out.println("Emp Wage : " + empWage);
         }
-        System.out.println("Total Emp Wage : " + totalEmpWage);
+        int totalEmpwage  =  totalemphrs * EMP_RATE_PER_HOUR;
+        System.out.println("Total Emp Wage : " + totalEmpwage);
+        return totalEmpwage;
+    }
+
+    public static void main(String[] args)
+    {
+        empWageComputation();
     }
 }
